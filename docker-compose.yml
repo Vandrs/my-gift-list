@@ -1,0 +1,15 @@
+version: '3.2'
+services:
+  postgres:
+    image: "postgres:14"
+    container_name: my-gift-list-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: my_gift_list
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - "my-gift-list-pgdata:/var/lib/postgresql/data"
+volumes:
+  my-gift-list-pgdata:
