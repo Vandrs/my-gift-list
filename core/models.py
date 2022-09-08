@@ -50,6 +50,8 @@ class Gift(CreatedUpdatedModelMixin):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField('Nome', max_length=100, null=False)
     description = models.CharField('Descrição', max_length=255, null=True)
+    amount = models.FloatField("Valor", null=False, default=0.0)
+    image = models.ImageField("Imagem", null=True, upload_to='images')
     is_active = models.BooleanField('Mostrar na lista', default=False)
 
     gift_list = models.ForeignKey('GiftList', related_name='gifts', on_delete=models.CASCADE)
